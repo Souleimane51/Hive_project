@@ -6,6 +6,7 @@ let touchEnd;
 hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.toggle("active")
     sideNav.classList.toggle("active")
+    document.querySelector("body").classList.toggle("active")
 })
 
 // Close sideNav with swiping
@@ -21,6 +22,7 @@ sideNav.addEventListener('touchend', () => {
     if (touchStart - touchEnd > 100) {
         sideNav.classList.remove('active');
         hamburgerMenu.classList.remove('active');
+        document.querySelector("body").classList.remove("active")
 
     }
 });
