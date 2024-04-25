@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+:root {
+    --primary-text-color: #221D12;
+    --light: #9F9F9F;
+    --accent: #FFD400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body.active {
+    overflow: hidden;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem 1rem 2rem;
+    background: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    transition: .2s ease-out;
+    z-index: 1;
+}
+
+.logo img {
+    display: block;
+    width: 200px
+}
+
+.navbarLogo {
+    display: none;
+}
+
+.tabsSubContainer {
+    display: flex;
+    align-items: center;
+    transform: translateX(0%);
+    z-index: 100;
+}
+
+.link, .joinUs {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-text-color);
+    font-weight: 600;
+    width: fit-content;
+}
+
+.link {
+    transition: color .2s;
+    padding: 1rem 1.5rem;
+}
+
+.link:hover {
+    color: #f5b200;
+}
+
+.joinUs {
+    background: #FFDD84;
+    border: 1px solid var(--primary-text-color);
+    border-radius: 5rem;
+    padding: .5rem 1rem;
+    margin: auto 0;
+    transition: background .2s;
+}
+
+.joinUs:hover {
+    background: #FFCB44;
+}
+
+.hamburgerMenu {
+    display: none;
+    height: fit-content;
+    width: 40px;
+}
+
+.hamburgerMenu span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    border-radius: 20px;
+    transition: all .3s ease-out;
+}
+
+.top, .bottom {
+    background: var(--primary-text-color);
+    transform-origin: 100%;
+}
+
+.middle {
+    margin: .5rem 0;
+    background:  #f5b200;
+}
+
+.hamburgerMenu.active .top {
+    transform: rotate(-40deg);
+}
+
+.hamburgerMenu.active .middle {
+    opacity: 0;
+}
+
+.hamburgerMenu.active .bottom {
+    transform: rotate(40deg);
+}
+
+.container {
+    margin: 9rem auto 5rem;
+    width: 80%;
+}
+
+.heroBanner {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.mainTitle {
+    font-size: clamp(36px, 3vw + 3vh, 3vw + 3vh);
+    font-weight: 900;
+    font-style: italic;
+}
+
+.mainTitle b {
+    font-weight: 800;
+    background: -webkit-linear-gradient(0deg, #ffcb43 0%, #ffd40080 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.selection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 0 2rem;
+    padding: .7rem 0 1rem 0;
+    position: relative;
+}
+
+.moreCategories {
+    display: none;
+    font-size: clamp(1.1rem, .5vw + .5vh, .5vw + .5vh);
+    color: #f5b2007a;
+    position: relative;
+    top: 0;
+    text-align: end;
+    right: 0;
+}
+
+.cardContainer {
+    height: 4rem;
+    min-width: 10rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    background-color: #ffe08c35;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cardContainer:nth-child(1) {
+    background-image: url("../assets/imagesGallery/category/craft.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer:nth-child(2) {
+    background-image: url("../assets/imagesGallery/category/pyrography.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer:nth-child(3) {
+    background-image: url("../assets/imagesGallery/category/bookFolding.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer:nth-child(4) {
+    background-image: url("../assets/imagesGallery/category/knitting.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer:nth-child(5) {
+    background-image: url("../assets/imagesGallery/category/woodWorking.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer:nth-child(6) {
+    background-image: url("../assets/imagesGallery/category/needleFelting.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: backdrop-filter .3s ease;
+}
+
+.cardContainer:hover::before {
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+}
+
+.cardContent {
+    font-size: clamp(1.2rem, 1vw + 1vh, 1vw + 1vh);
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 0 5px black;
+    position: relative;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    gap: 6px;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+    transition: filter .2s ease;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    filter: brightness(.6);
+}
+
+.gallery img.big {
+    grid-row: span 2 / auto;
+    grid-column: span 2 / auto;
+}
+
+.gallery .wide {
+    grid-column: span 2 / auto;
+}
+
+
+.gallery .tall {
+    grid-row: span 2 / auto;
+}
+
+.toFacebook {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    margin: 2rem auto;
+    border-radius: 5rem;
+    background: #0866ff;
+    transition: background .2s ease;
+}
+
+.toFacebook:hover {
+    background: #0655d4;
+}
+
+
+.toFacebook svg {
+    fill: #fff;
+}
+
+.toFacebook p {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.bg {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000000c2;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg.active {
+    display: flex;
+}
+
+.fullSizeImage {
+    max-width: 80%;
+}
+
+.close {
+    position: absolute;
+    right: 4%;
+    top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    transition: background .3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.close:hover {
+    background: #5b5b5bb0;
+}
+
+.close::before, .close::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    border-radius: 20px;
+    background: #FFCB43;
+}
+
+.close::before{
+    transform: rotate(-45deg);
+}
+
+.close::after{
+    transform: rotate(45deg);
+}
+
+footer {
+    --footer-color: #00000099;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    justify-content: space-between;
+    background: #ffcb4333;
+    padding: 2rem 5%;
+    color: var(--footer-color);
+}
+
+.footerSection div {
+    word-break: break-all;
+}
+
+
+.logoCopyright p{
+    font-size: clamp(12px, .5vw + .5vh, .5vw + .5vh);
+    margin-top: 1rem;
+    color: #818181;
+}
+
+.socialMediaContainer {
+    display: flex;
+    gap: .8rem;
+}
+
+h3 {
+    color: var(--footer-color);
+    font-size: clamp(18px, .8vw + .8vw, .8vw + .8vh);
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+.socialMediaLogoContainer {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    border: 2.5px solid var(--footer-color);
+    border-radius: 50%;
+    color: var(--footer-color);
+    align-items: center;
+    justify-content: center;
+    transition: .2s ease;
+}
+
+.socialMediaLogoContainer svg {
+    height: 20px;
+}
+
+path {
+    fill: var(--footer-color)
+}
+
+.socialMediaLogoContainer:hover {
+    background: var(--footer-color);
+}
+
+.socialMediaLogoContainer:hover path {
+    fill: white;
+}
+
+.address div a {
+    text-decoration: underline;
+}
+
+.aboutLinks {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    text-decoration: underline;
+
+}
+
+@media screen and (max-width: 1200px) {
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .socialMedia {
+        display: flex;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (max-width: 1300px) {
+    .selection {
+        overflow-x: scroll;
+        justify-content: left;
+    }
+
+    .moreCategories {
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+
+    .navbarLogo {
+        display: block;
+        margin-bottom: 5rem;
+    }
+
+    .tabsSubContainer {
+        position: absolute;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        padding: 2rem;
+        border-right: 1px solid #d8d8d8;
+        background: #fff;
+        transform: translateX(-100%);
+        transition: transform .4s ease-out;
+    }
+
+    .tabsSubContainer.active {
+        transform: translateX(0%);
+    }
+
+    .link {
+        padding: 1.5rem 3.5rem;
+    }
+    
+    .link:hover {
+        color: #221D12;
+    }
+
+    .joinUs {
+        margin-top: 1.5rem;
+    }
+
+    .joinUs:hover {
+        background: #FFDD84;
+    }
+
+    .hamburgerMenu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .cardContainer:hover::before {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .gallery {
+        gap: 15px;
+    }
+
+    .gallery .big {
+        grid-column: initial !important;
+    }
+
+    .gallery .wide {
+        grid-column: initial;
+    }
+
+    .gallery img {
+        grid-row: span 2 / auto;
+    }
+
+    .gallery img:hover {
+        filter: unset;
+    }
+
+    .toFacebook:hover {
+        background: #0866ff;
+    }
+
+    .close:hover {
+        background: unset;
+    }
+
+    footer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .logoCopyright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 385px) {
+
+    .logo img {
+        width: 180px;
+    }
+
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    .tabsSubContainer {
+        width: 100%;
+    }
+
+    .hamburgerMenu {
+        width: 25px;
+    }
+
+    .hamburgerMenu.active {
+        display: none;
+    }
+
+    .hamburgerMenu span {
+        height: 4px;
+    }
+
+    .middle {
+        margin: .3rem 0;
+    }
+
+    .hamburgerMenu.active .top {
+        transform: rotate(-35deg);
+    }
+    
+    .hamburgerMenu.active .bottom {
+        transform: rotate(35deg);
+    }
+
+    .toFacebook {
+        padding: 1rem;
+    }
+    
+}
