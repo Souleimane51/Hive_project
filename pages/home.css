@@ -129,6 +129,7 @@ nav {
     margin-top: 8rem;
     padding: 5rem 10% 0;
     text-align: center;
+    position: relative;
 }
 
 .heroBanner::before, .heroBanner::after {
@@ -215,12 +216,12 @@ nav {
 }
 
 .aboutSection {
-    margin-block: 6rem;
+    margin-block: 6rem 8rem;
     padding-inline: 15%;
 }
 
 .aboutSection .topSubContainer {
-    margin: 0 auto 3rem;
+    margin: 0 auto 5rem;
     text-align: center;
 }
 
@@ -255,25 +256,131 @@ nav {
 .aboutSubSection {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 7vw;
+    gap: 8vw;
     align-items: center;
+    position: relative;
 }
 
-.aboutSubSection img {
+.aboutSubSection .imgContainer {
+    width: fit-content;
+    margin-inline: auto;
+    position: relative;
+}
+
+.honeycomb {
+    position: absolute;
+}
+
+.honeycomb.first {
+    top: 0;
+    left: 0;
+    transform: translate(15%, -65%);
+    width: 25%;
+    z-index: -10;
+}
+
+.honeycomb.second {
+    top: 0;
+    right: 0;
+    transform: translate(20%, -100%);
+    width: 6%;
+    z-index: -10;
+}
+
+.honeycomb.third {
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    transform: translate(-30%, 35%) rotate(35deg);
+    z-index: -10;
+}
+
+.honeycomb.fourth {
+    left: 0;
+    top: 0;
+    width: 55%;
+    transform: translate(-50%, -40%);
+    z-index: -10;
+}
+
+.aboutSubSection .imgContainer::before, .aboutSubSection .imgContainer::after{
+    content: "";
+}
+
+.aboutSubSection .imgContainer::before, .aboutSubSection .imgContainer::after, .topTape{
+    position: absolute;
+    width: 30%;
+    height: 15%;
+    background: #ffca4480;
+
+}
+
+.aboutSubSection.one .imgContainer::before {
+    right: 0;
+    top: 0;
+    transform: translate(45%, -15%) rotate(45deg);
+}
+
+.aboutSubSection.one .imgContainer::after {
+    left: 0;
+    bottom: 0;
+    transform: translate(-45%, 15%) rotate(45deg);
+}
+
+.aboutSubSection.two .imgContainer::before {
+    left: 0;
+    top: 0;
+    transform: translate(-40%, -15%) rotate(-45deg);
+}
+
+.aboutSubSection.two .imgContainer::after {
+    right: 0;
+    bottom: 0;
+    transform: translate(40%, 15%) rotate(-45deg);
+}
+
+.aboutSubSection.three .imgContainer::before {
+    left: 0;
+    bottom: 0;
+    transform: translate(-40%, 15%) rotate(45deg);
+    width: 35%;
+    height: 10%;
+}
+
+.aboutSubSection.three .imgContainer::after {
+    right: 0;
+    bottom: 0;
+    transform: translate(40%, 15%) rotate(-45deg);
+    width: 35%;
+    height: 10%;
+}
+
+.topTape {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    height: 10%;
+}
+
+.aboutSubSection .imgContainer .mainImages {
     max-width: 100%;
     border-radius: 1rem;
     margin-inline: auto;
+    position: relative;
+    z-index: -5;
 }
 
+
 .aboutSubSection.two {
-    margin-block: 7rem;
+    margin: 10rem 0;
 }
 
 
 .aboutSubSection p {
-    font-size: clamp(16px, 1vw + 1vh, 38px);
+    font-size: clamp(16px, 1vw + 1vh, 1vh + 1vw);
     font-weight: 500;
-    line-height: 2.2rem;
+    line-height: 5.5vh;
     text-align: justify;
 }
 
@@ -287,6 +394,27 @@ footer {
     background: #ffcb4333;
     padding: 2rem 5%;
     color: var(--footer-color);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.honeycombFooter {
+    position: absolute;
+}
+
+.honeycombFooter.first {
+    right: 0;
+    transform: translate(40%, -15%) rotate(30deg);
+    top: 0;
+    width: 15rem;
+}
+
+.honeycombFooter.second {
+    width: 16rem;
+    bottom: 0;
+    transform: translateY(15%);
+    left: 30%;
 }
 
 .footerSection div {
@@ -358,7 +486,15 @@ path {
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .aboutSubSection.two img {
+    .honeycomb.second {
+        display: none;
+    }
+
+    .honeycombFooter.first {
+        width: 20rem;
+    }
+
+    .aboutSubSection.two div img {
         order: 1;
     }
 
@@ -373,6 +509,10 @@ path {
     .socialMedia {
         display: flex;
         align-items: center;
+    }
+
+    .honeycombFooter.second {
+        display: none;
     }
 
 }
@@ -429,6 +569,7 @@ path {
         opacity: 0;
         transform: translateX(0%);
     }
+
 }
 
 @media screen and (max-width: 750px) {
@@ -448,6 +589,14 @@ path {
         height: 100px;
     }
 
+    .honeycomb.fourth {
+        display: none;
+    }
+
+    .honeycombFooter.first {
+        display: none;
+    }
+
     footer {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -456,6 +605,10 @@ path {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .honeycombFooter.second {
+        display: none;
     }
 }
 
